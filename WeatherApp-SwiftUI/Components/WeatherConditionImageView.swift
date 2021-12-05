@@ -26,8 +26,7 @@ struct WeatherConditionImageView: View {
   }
   
   func imageUrl() -> URL? {
-//    return URL(string: "https://openweathermap.org/img/wn/\(imageName)@2x.png")
-    return URL(string: "https://openweathermap.org/img/wn/13n@2x.png")
+    return URL(string: "https://openweathermap.org/img/wn/\(imageName)@2x.png")
   }
 }
 
