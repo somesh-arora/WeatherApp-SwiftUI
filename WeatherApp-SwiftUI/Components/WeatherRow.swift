@@ -36,6 +36,6 @@ struct WeatherRow: View {
 
 struct WeatherRow_Previews: PreviewProvider {
   static var previews: some View {
-    WeatherRow(logo: "thermometer", name: "Feels like", value: "8" + "\u{00B0}")
+    WeatherRow(logo: "thermometer", name: "Feels like", value: "8" + Constants.degreeIcon)
   }
 }

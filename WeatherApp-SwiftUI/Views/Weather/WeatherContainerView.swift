@@ -39,7 +39,7 @@ struct WeatherContainerView: View {
     VStack {
       WeatherTemperatureView(weather: weather)
       Spacer()
-        .frame(height: 80)
+        .frame(height: 30)
       cityImageView
       Spacer()
     }
@@ -49,7 +49,7 @@ struct WeatherContainerView: View {
   private var cityNameView: some View {
     Text(weather.name)
       .bold()
-      .font(.title)
+      .font(.largeTitle)
   }
   
   private var cityImageView: some View {

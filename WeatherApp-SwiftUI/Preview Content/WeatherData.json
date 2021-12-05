@@ -29,7 +29,8 @@
     "feels_like":269.22,
     "temp_min":269.84,
     "temp_max":272.32,
-    "pressure":1021,"humidity":89
+    "pressure":1021,
+    "humidity":89
     
   },
   "visibility":2414,

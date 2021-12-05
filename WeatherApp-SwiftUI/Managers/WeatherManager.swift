@@ -38,7 +38,7 @@ struct ResponseBody: Decodable {
   var sys: SystemResponse
   var name: String
   var base: String
-  var dt: Int64
+  var dt: Double
   var timezone: Double
   var id: Double
   var cod: Double
@@ -78,6 +78,6 @@ struct SystemResponse: Decodable {
   var type: Int
   var id: Double
   var country: String
-  var sunrise: Int64
-  var sunset: Int64
+  var sunrise: Double
+  var sunset: Double
 }
