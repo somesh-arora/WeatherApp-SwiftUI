@@ -21,9 +21,7 @@ struct WeatherDrawerView: View {
   private var contentView: some View {
     VStack(alignment: .center, spacing: 20) {
       currentWeatherTextView
-      temperatureRowView
-      windAndHumidityRowView
-      sunRowView
+      weatherView
     }
     .frame(maxWidth: .infinity, alignment: .center)
     .padding()
@@ -36,30 +34,29 @@ struct WeatherDrawerView: View {
   private var currentWeatherTextView: some View {
     Text("Current Weather")
       .bold()
-      .padding(.bottom)
   }
   
-  private var temperatureRowView: some View {
+  private var weatherView: some View {
     HStack {
+      column1View
+      Spacer()
+      column2View
+    }
+  }
+  
+  private var column1View: some View{
+    VStack(alignment: .leading, spacing: 20) {
       minTempView
-      Spacer()
+      windSpeedView
+      sunriseView
+    }
+  }
+  
+  private var column2View: some View{
+    VStack(alignment: .leading, spacing: 20) {
       maxTempView
-    }
-  }
-  
-  private var windAndHumidityRowView: some View {
-    HStack {
-      windView
-      Spacer()
       humidityView
-    }
-  }
-  
-  private var sunRowView: some View {
-    HStack {
-      WeatherRow(logo: "sunrise", name: "Sunrise", value: timestampToDate(value: weather.sys.sunrise))
-      Spacer()
-      WeatherRow(logo: "sunset", name: "Sunset", value: timestampToDate(value: weather.sys.sunset))
+      sunsetView
     }
   }
   
@@ -80,12 +77,20 @@ struct WeatherDrawerView: View {
     WeatherRow(logo: "thermometer", name: "Max temp", value: (weather.main.temp_max.roundDouble()) + Constants.degreeIcon)
   }
   
-  private var windView: some View {
+  private var windSpeedView: some View {
     WeatherRow(logo: "wind", name: "Wind speed", value: (weather.wind.speed.roundDouble()) + "m/s")
   }
   
   private var humidityView: some View {
     WeatherRow(logo: "humidity", name: "Humidity", value: (weather.main.humidity.roundDouble()) + "%")
+  }
+  
+  private var sunriseView: some View {
+    WeatherRow(logo: "sunrise", name: "Sunrise", value: timestampToDate(value: weather.sys.sunrise))
+  }
+  
+  private var sunsetView: some View {
+    WeatherRow(logo: "sunset", name: "Sunset", value: timestampToDate(value: weather.sys.sunset))
   }
 }
 
